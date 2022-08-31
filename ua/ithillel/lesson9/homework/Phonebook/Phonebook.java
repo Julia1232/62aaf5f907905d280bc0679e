@@ -1,19 +1,31 @@
 package ua.ithillel.lesson9.homework.Phonebook;
 
-public class Phonebook extends Recording {
+import java.util.*;
+public class Phonebook {
     public static void main(String[] args) {
-        Recording recording = new Recording();
-        recording.add("Julia", "+380956271353");
-        recording.add("Anna", "+380952171321");
-        recording.add("Olga", "+380956275213");
-        recording.add("Kate", "+380502514283");
-        recording.add("Anastasia", "+380502521228");
-        recording.add("Julia", "+380502263538");
-        recording.add("Viktoria", "+380502527264");
-        recording.add("Dmitro", "+380502521118");
-        System.out.println("Julia " + recording.find("Julia"));
-        System.out.println("Anna " + recording.find("Anna"));
-        System.out.println("Kate " + recording.find("Kate"));
+        List<String> list = new ArrayList<>();
+        list.add("julia - 096392645");
+        list.add("ann - 096392645");
+        list.add("nika - 096392645 ");
+        list.add("olga - 096392645");
+
+        find(list, "julia");
+    }
+    public static void find(List<String> lst, String name) {
+
+        Iterator<String> itr = lst.iterator();
+        while (itr.hasNext()) {
+            String curr = itr.next();
+            if (!curr.startsWith(name)) {
+                itr.remove();
+            }
+        }
+        System.out.println(lst);
     }
 }
+
+
+
+
+
 
